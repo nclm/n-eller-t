@@ -18,6 +18,9 @@ body {
 	justify-content: space-between;
 	}
 
+::-moz-selection { background: #002B36; color: currentColor; }
+::selection { background: #002B36; color: currentColor; }
+
 a {
 	color: currentColor;
 	}
