@@ -48,7 +48,7 @@ h1, nav {
 	text-align: center;
 	font-size: 2rem;
 	cursor: pointer;
-	margin: 2rem 1rem;
+	margin: 3rem 1rem;
 	vertical-align: baseline;
 	transition: all .2s;
 	}
@@ -72,6 +72,7 @@ h1, nav {
 #game input:checked + label {
 	transform: scale(1.05);
 	background: black;
+	position: relative;
 	}
 
 #game input[data-answer='wrong']:checked + label {
@@ -82,6 +83,44 @@ h1, nav {
 #game input[data-answer='right']:checked + label {
 	border-color: #859900;
 	background: #859900;
+	}
+
+@keyframes result {
+	0% {
+		transform: translatey(0);
+		opacity: 0;
+	}
+  
+	50% {
+		opacity: 1;
+	}
+
+	100% {
+		transform: translatey(-1rem);
+		opacity: 0;	
+	}
+}
+
+#game input:checked + label:after {
+	position: absolute;
+	top: -60%;
+	left: -2em;
+	right: -2em;
+	font-size: .8rem;
+	text-transform: uppercase;
+	text-align: center;
+	pointer-events: none;
+	animation: result 1s forwards;
+	}
+	
+#game input[data-answer='wrong']:checked + label:after {
+	content: 'Forkert';
+	color: #DC322F;
+	}
+	
+#game input[data-answer='right']:checked + label:after {
+	content: 'Korrekt';
+	color: #859900;
 	}
 
 #next {
